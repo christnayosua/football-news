@@ -23,15 +23,15 @@
 <!-- Penambahan tampilan untuk menampilkan timestamp user terakhir melakukan login -->
 <h5>Sesi terakhir login: {{ last_login }}</h5>
 
-<hr>
-
 <!-- Penambahan kode untuk melakukan filter -->
 <a href="?filter=all">
-    <button type="button">All Articles</button>
+  <button type="button">All Articles</button>
 </a>
 <a href="?filter=my">
-    <button type="button">My Articles</button>
+  <button type="button">My Articles</button>
 </a> 
+
+<hr>
 
 {% if not news_list %}
 <p>Belum ada data berita pada football news.</p>
