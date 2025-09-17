@@ -7,6 +7,15 @@ from main.views import show_xml, show_json
 # import fungsi show_xml_by_id dan show_json_by_id
 from main.views import show_json_by_id, show_xml_by_id
 
+# import fungsi register
+from main.views import register
+
+# import fungsi login_user
+from main.views import login_user
+
+# import fungsi logout_user
+from main.views import logout_user
+
 app_name = 'main'
 
 urlpatterns = [
@@ -21,4 +30,13 @@ urlpatterns = [
     # Menambahkan path url untuk mengakses fungsi show_xml_by_id dan show_json_by_id
     path('xml/<str:news_id>/', show_xml_by_id, name='show_xml_by_id'),
     path('json/<str:news_id>/', show_json_by_id, name='show_json_by_id'),
+
+    # Penambahan path url untuk fungsi register pada bagian views.py
+    path('register/', register, name='register'),
+
+    # Penambahan path url untuk mengakses fungsi login_user()
+    path('login/', login_user, name='login'),
+
+    # Penambahan path url untuk mengakses fungsi logout_user
+    path('logout/', logout_user, name='logout'),
 ]

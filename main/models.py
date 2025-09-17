@@ -1,9 +1,15 @@
 from django.db import models
 import uuid
 
+# Penambahan import modul untuk menghubungkan model news dengan user
+from django.contrib.auth.models import User
+
 # Create your models here.
 
 class News(models.Model):
+    # Penambahan attribute user untuk menghubungkan satu news dengan satu user melalui relationship
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    
     CATEGORY_CHOICES = [
         ('transfer', 'Transfer'),
         ('update', 'Update'),
