@@ -37,7 +37,7 @@ ALLOWED_HOSTS = ["localhost", "127.0.0.1", "christna-yosua-footballnews.pbp.cs.u
 
 # Tambahan entri url proyek pws
 CSRF_TRUSTED_ORIGINS = [
-    "https://christna-yosua-footballnews.pbp.cs.ui.ac.id/"
+    "https://christna-yosua-footballnews.pbp.cs.ui.ac.id"
 ]
 
 # Application definition
