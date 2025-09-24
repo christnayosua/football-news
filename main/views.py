@@ -19,6 +19,26 @@ import datetime
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
+# Penambahan fungsi untuk delete_news
+def delete_news(request, id):
+    news = get_object_or_404(News, pk=id)
+    news.delete()
+    return HttpResponseRedirect(reverse('main:show_main'))
+
+# Penambahan fungsi untuk mengedit news
+def edit_news(request, id):
+    news = get_object_or_404(News, pk=id)
+    form = NewsForm(request.POST or None, instance=news)
+    if form.is_valid() and request.method == 'POST':
+        form.save()
+        return redirect('main:show_main')
+
+    context = {
+        'form': form
+    }
+
+    return render(request, "edit_news.html", context)
+
 # Penambahan fungsi untuk mekanisme logout
 def logout_user(request):
     # Konfigurasi untuk menghapus cookie last_login setelah logout
