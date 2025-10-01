@@ -22,6 +22,9 @@ from main.views import edit_news
 # import fungsi delete_news
 from main.views import delete_news
 
+# import fungsi add_news_entry_ajax
+from main.views import add_news_entry_ajax
+
 app_name = 'main'
 
 urlpatterns = [
@@ -51,4 +54,7 @@ urlpatterns = [
 
     # Penambahan path url untuk mengakses fungsi delete_news
     path('news/<uuid:id>/delete', delete_news, name='delete_news'),
+
+    # Penambahan path url untuk mengakses fungsi add_news_entry_ajax
+    path('create-news-ajax', add_news_entry_ajax, name='add_news_entry_ajax'),
 ]
