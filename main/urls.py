@@ -1,5 +1,5 @@
 from django.urls import path
-from main.views import show_main, create_news, show_news
+from main.views import create_news_flutter, show_main, create_news, show_news
 
 # import fungsi show_xml dan show_json
 from main.views import show_xml, show_json
@@ -24,6 +24,9 @@ from main.views import delete_news
 
 # import fungsi add_news_entry_ajax
 from main.views import add_news_entry_ajax
+
+# import fungsi proxy_image
+from main.views import proxy_image
 
 app_name = 'main'
 
@@ -57,4 +60,10 @@ urlpatterns = [
 
     # Penambahan path url untuk mengakses fungsi add_news_entry_ajax
     path('create-news-ajax', add_news_entry_ajax, name='add_news_entry_ajax'),
+
+    # Mengakses fungsi proxy_image
+    path('proxy-image/', proxy_image, name='proxy_image'),
+
+    # Mengakses fungsi add news menggunakan flutter
+    path('create-flutter/', create_news_flutter, name='create_news_flutter'),
 ]
