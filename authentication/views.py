@@ -20,22 +20,23 @@ def login(request):
     if user is not None:
         if user.is_active:
             auth_login(request, user)
-            # Redirect to a success page.
+            # Login status successful.
             return JsonResponse({
-              "status": True,
-              "message": "Successfully Logged In!"
-              # Insert any extra data if you want to pass data to Flutter
+                "username": user.username,
+                "status": True,
+                "message": "Login successful!"
+                # Add other data if you want to send data to Flutter.
             }, status=200)
         else:
             return JsonResponse({
-              "status": False,
-              "message": "Failed to Login, Account Disabled."
+                "status": False,
+                "message": "Login failed, account is disabled."
             }, status=401)
 
     else:
         return JsonResponse({
-          "status": False,
-          "message": "Failed to Login, check your email/password."
+            "status": False,
+            "message": "Login failed, please check your username or password."
         }, status=401)
     
 # Penambahan metode untuk melakukan registrasi
